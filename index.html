@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <div id='app' class="styleEditor">
+            <pre>
+                {{code}}
+            </pre>
+            <div v-html="styleCode"></div>
+        </div>
+        
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.4/vue.js"></script>
+    <script>
+        var app = new Vue({
+                el: '#app',
+                msg: '',
+                data() {
+                    return {
+                        code: ``,
+                        finalCode:
+    `
+           /* 
+            * 大家好，我是无笙 
+            * 现在开始写点有意思的小玩意儿,
+            * 字体有点小，这个背景也看着不爽，改改改  
+            */ 
+           /* 白色背景太单调了，我们来点背景 */
+            html {color: skyblue;background: rgb(0,43,54);font-size:14px;}
+           /*
+            * 这下好多了，心情都愉悦了，
+            * 我之前是一个试验检测员，
+            * 由于身体原因，所以选择换一个职业。
+            * 到招聘网看到很多职业都不适合我，
+            * 一下子就懵了，不知道自己能做神马，
+            * 很多工作都需要文凭，自己却只有中专文凭。
+            * 所以，我来到了四川广播电视大学学习，
+            * 希望能通过学习取得一个大学文凭，找到一个自己喜欢了工作。
+            * 我比较喜欢玩电脑，我就想着学个计算机专业，
+            * 在网上跟胡老师沟通后，选择了计算机信息管理专业。
+            * 通过和朋友、同学聊天时，聊起了Web前端这个行业，
+            * 起点不算高，以后找工作的薪资待遇也不错，
+            * 紧接着我就开始了自学前端之路，也就是传说的入坑期。
+            * 刚开始学习就是跟着网上找的视频开始学习，
+            * 刚开始感觉很轻松，感觉Web前端不过如此...
+            * 可是后来慢慢的，赶紧越学越难，自己很多东西无从下手，
+            * 这时，我就有点紧张了，感觉自己当初太年少...哈哈哈
+            * 慢慢的，我加入了一些社群，和群友们聊天，
+            * 看别人的问题，找寻自己的答案，
+            * 看别人解决问题的思路，从而提升自己的技术。
+            * 只有自己技术提高了才能得到一个自己满意的工作
+            * 所以，加油，加油，加油吧！！！
+            */            
+      
+    `
+                        ,
+
+                    }
+                },
+                created() {
+                    var n = 0;
+                    setInterval(() => {
+                        this.code = this.finalCode.substring(0, n);
+                        n += 1;
+                    }, 50)
+
+                },
+                computed: {
+                    styleCode() {
+                        return '<style>' + this.code + '</style>'
+                    }
+                }
+            })
+    </script>
+</body>
+</html>
